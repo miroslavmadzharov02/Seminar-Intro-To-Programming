@@ -8,7 +8,8 @@ struct permutationArray
 
 void addElement(permutationArray &perm, char* elementToAdd)
 {
-    perm.permutations[perm.index++] = elementToAdd;
+    perm.permutations[perm.index] = elementToAdd;
+    index++;
 }
 
 void printElements(permutationArray& perm)
