@@ -9,7 +9,7 @@ struct permutationArray
 void addElement(permutationArray &perm, char* elementToAdd)
 {
     perm.permutations[perm.index] = elementToAdd;
-    index++;
+    perm.index++;
 }
 
 void printElements(permutationArray& perm)
