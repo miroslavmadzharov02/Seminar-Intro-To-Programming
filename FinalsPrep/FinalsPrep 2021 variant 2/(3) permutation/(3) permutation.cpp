@@ -8,8 +8,7 @@ struct permutationArray
 
 void addElement(permutationArray &perm, char* elementToAdd)
 {
-    perm.permutations[perm.index] = elementToAdd;
-    perm.index++;
+    perm.permutations[perm.index++] = elementToAdd;
 }
 
 void printElements(permutationArray& perm)
@@ -27,7 +26,15 @@ void swapValues(char*& word, int firstIndex, int secondIndex)
 
 void permute(permutationArray& perm, char* word, int startingIndex, const int& wordLength)
 {
-    if (startingIndex == wordLength) std::cout << word << '\n'; //addElement(perm, word);
+    if (startingIndex == wordLength)
+    {
+        char* element = new char[4];
+        for (int i = 0; i < 3; i++)
+            element[i] = word[i];
+
+        element[3] = '\0';
+        addElement(perm, element);
+    }
     for (int i = startingIndex; i < wordLength; i++)
     {
         swapValues(word, startingIndex, i);
@@ -47,5 +54,8 @@ int main()
     permute(perm, word, 0, 3);
     printElements(perm);
 
+    for (int i = 0; i < perm.index; i++)
+        delete[] perm.permutations[i];
+    delete[] perm.permutations;
     return 0;
 }
