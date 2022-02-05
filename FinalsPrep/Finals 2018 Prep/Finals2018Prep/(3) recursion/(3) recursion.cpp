@@ -11,12 +11,6 @@ int charArraySize(char* inputText)
     return count;
 }
 
-int lengthDifference(char* firstText, char* secondText)
-{
-    if (charArraySize(firstText) > charArraySize(secondText)) return charArraySize(firstText) - charArraySize(secondText);
-    else return charArraySize(secondText) - charArraySize(firstText);
-}
-
 void printBothTextsCombined(char* firstText, char* secondText, int index)
 {
     if (index == charArraySize(firstText) && charArraySize(firstText) - charArraySize(secondText) == 0) return;
